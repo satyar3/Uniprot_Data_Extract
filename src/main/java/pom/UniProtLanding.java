@@ -6,25 +6,25 @@ import org.openqa.selenium.WebDriver;
 
 import java.time.Duration;
 
-public class UniProdLanding {
+public class UniProtLanding {
 
     WebDriver driver;
 
-    public UniProdLanding(WebDriver driver) {
+    public UniProtLanding(WebDriver driver) {
         this.driver = driver;
     }
 
     By privacyPanel = By.cssSelector("#privacy-panel-accept");
     By mappingPanel = By.cssSelector("#upload-lists-nav");
 
-    public UniProdLanding closePrivacy(){
+    public UniProtLanding closePrivacy(){
         Uninterruptibles.sleepUninterruptibly(Duration.ofSeconds(2));
         driver.findElement(privacyPanel).click();
 
         return this;
     }
 
-    public UniProdLanding selectMapping(){
+    public UniProtLanding selectMapping(){
         Uninterruptibles.sleepUninterruptibly(Duration.ofSeconds(2));
         driver.findElement(mappingPanel).click();
         return this;

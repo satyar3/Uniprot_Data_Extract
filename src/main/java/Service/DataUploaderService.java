@@ -2,11 +2,11 @@ package Service;
 
 import com.google.common.util.concurrent.Uninterruptibles;
 import org.openqa.selenium.WebDriver;
-import pom.UniProdCustomizedColumns;
-import pom.UniProdDownloadPanel;
-import pom.UniProdFileUpload;
-import pom.UniProdLanding;
-import pom.UniProdResults;
+import pom.UniProtCustomizedColumns;
+import pom.UniProtDownloadPanel;
+import pom.UniProtFileUpload;
+import pom.UniProtLanding;
+import pom.UniProtResults;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -32,24 +32,24 @@ public class DataUploaderService {
             WebDriver driver = driverService.initDriver(downloadPath);
             driverService.goTo(driver);
 
-            UniProdLanding uniProdLanding = new UniProdLanding(driver);
-            uniProdLanding.closePrivacy().selectMapping();
+            UniProtLanding uniProtLanding = new UniProtLanding(driver);
+            uniProtLanding.closePrivacy().selectMapping();
 
-            UniProdFileUpload uniProdFileUpload = new UniProdFileUpload(driver);
-            uniProdFileUpload.uploadFile(inputPath, fileListToBeUploaded);
+            UniProtFileUpload uniProtFileUpload = new UniProtFileUpload(driver);
+            uniProtFileUpload.uploadFile(inputPath, fileListToBeUploaded);
 
-            UniProdResults uniProdResults = new UniProdResults(driver);
-            uniProdResults.clickOnColumns();
+            UniProtResults uniProtResults = new UniProtResults(driver);
+            uniProtResults.clickOnColumns();
 
-            UniProdCustomizedColumns uniProdCustomizedColumns = new UniProdCustomizedColumns(driver);
-            uniProdCustomizedColumns.arrangeColumns();
+            UniProtCustomizedColumns uniProtCustomizedColumns = new UniProtCustomizedColumns(driver);
+            uniProtCustomizedColumns.arrangeColumns();
 
-            UniProdDownloadPanel uniProdDownloadPanel = new UniProdDownloadPanel(driver);
+            UniProtDownloadPanel uniProtDownloadPanel = new UniProtDownloadPanel(driver);
 
             AtomicInteger counter = new AtomicInteger();
 
             fileListToBeUploaded.stream().forEach(file ->
-                    uploadFileStream(inputPath, downloadPath, outPutPath, downloadPath, uniProdLanding, uniProdFileUpload, uniProdDownloadPanel, counter, file));
+                    uploadFileStream(inputPath, downloadPath, outPutPath, downloadPath, uniProtLanding, uniProtFileUpload, uniProtDownloadPanel, counter, file));
 
         } catch (IOException e) {
             //e.printStackTrace();
@@ -57,15 +57,15 @@ public class DataUploaderService {
         }
     }
 
-    private void uploadFileStream(String inputPath, String downloadPath, String outPutPath, String downloadFilepath, UniProdLanding uniProdLanding, UniProdFileUpload uniProdFileUpload, UniProdDownloadPanel uniProdDownloadPanel, AtomicInteger counter, String file) {
+    private void uploadFileStream(String inputPath, String downloadPath, String outPutPath, String downloadFilepath, UniProtLanding uniProtLanding, UniProtFileUpload uniProtFileUpload, UniProtDownloadPanel uniProtDownloadPanel, AtomicInteger counter, String file) {
         try {
             System.out.println(counter.incrementAndGet());
             System.out.println("Starting for the File : " + file);
             Uninterruptibles.sleepUninterruptibly(Duration.ofSeconds(10));
 
-            uniProdLanding.selectMapping();
-            uniProdFileUpload.uploadFile(inputPath, file);
-            uniProdDownloadPanel.download();
+            uniProtLanding.selectMapping();
+            uniProtFileUpload.uploadFile(inputPath, file);
+            uniProtDownloadPanel.download();
 
             String fileNameInDownloadFolder = Files.list(Paths.get(downloadFilepath)).filter(f -> !Files.isDirectory(f))
                     .map(Path::getFileName)

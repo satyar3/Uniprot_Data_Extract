@@ -3,11 +3,11 @@ package pom;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class UniProdCustomizedColumns {
+public class UniProtCustomizedColumns {
 
     WebDriver driver;
 
-    public UniProdCustomizedColumns(WebDriver driver) {
+    public UniProtCustomizedColumns(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -29,7 +29,7 @@ public class UniProdCustomizedColumns {
     By tlSpices = By.cssSelector("#lineage_8_SPECIES_9_-column-input");
     By saveButton = By.cssSelector("#top-customize-columns-save");
 
-    public UniProdCustomizedColumns arrangeColumns(){
+    public UniProtCustomizedColumns arrangeColumns(){
         driver.findElement(reviewedCross).click();
         driver.findElement(lengthCross).click();
         driver.findElement(pathway).click();

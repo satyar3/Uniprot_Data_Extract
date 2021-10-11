@@ -77,7 +77,7 @@
       <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.30" />
       <element id="archive" name="DataRunnerUploader.jar" />
       <element id="archive" name="Parameswari_Data_Extarct.jar">
-        <element id="module-output" name="Parameswari_Data_Extarct" />
+        <element id="module-output" name="Uniprot_Data_Extarct" />
       </element>
     </root>
   </artifact>

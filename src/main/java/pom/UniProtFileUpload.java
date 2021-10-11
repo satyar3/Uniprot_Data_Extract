@@ -8,18 +8,18 @@ import org.openqa.selenium.WebDriver;
 import java.time.Duration;
 import java.util.Set;
 
-public class UniProdFileUpload {
+public class UniProtFileUpload {
 
     WebDriver driver;
 
-    public UniProdFileUpload(WebDriver driver) {
+    public UniProtFileUpload(WebDriver driver) {
         this.driver = driver;
     }
 
     By uploadFile = By.cssSelector("#uploadfile");
     By submitButton = By.cssSelector("#upload-submit");
 
-    public UniProdFileUpload uploadFile(String inputPath, Set<String> fileListToBeUploaded){
+    public UniProtFileUpload uploadFile(String inputPath, Set<String> fileListToBeUploaded){
 
         driver.findElement(uploadFile).sendKeys(inputPath+"/"+fileListToBeUploaded.stream().findFirst().get());
 
@@ -30,7 +30,7 @@ public class UniProdFileUpload {
         return this;
     }
 
-    public UniProdFileUpload uploadFile(String inputPath, String fileListToBeUploaded){
+    public UniProtFileUpload uploadFile(String inputPath, String fileListToBeUploaded){
 
         driver.findElement(By.cssSelector("#uploadfile")).sendKeys(inputPath+"/" + fileListToBeUploaded);
 

@@ -7,11 +7,11 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
 
-public class UniProdDownloadPanel {
+public class UniProtDownloadPanel {
 
     WebDriver driver;
 
-    public UniProdDownloadPanel(WebDriver driver) {
+    public UniProtDownloadPanel(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -20,7 +20,7 @@ public class UniProdDownloadPanel {
     By goButton = By.cssSelector("#menu-go");
 
 
-    public UniProdDownloadPanel download(){
+    public UniProtDownloadPanel download(){
         driver.findElement(downloadButton).click();
 
 

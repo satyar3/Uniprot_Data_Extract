@@ -6,7 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Parameswari_Data_Extarct" />
+        <module name="Uniprot_Data_Extarct" />
       </profile>
     </annotationProcessing>
   </component>
